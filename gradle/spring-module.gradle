@@ -6,7 +6,9 @@ apply plugin: 'org.springframework.build.optional-dependencies'
 // apply plugin: 'io.github.goooler.shadow'
 apply plugin: 'me.champeau.jmh'
 apply from: "$rootDir/gradle/publications.gradle"
-apply plugin: "io.spring.nullability"
+if (project.name != "spring-debug") {
+	apply plugin: "io.spring.nullability"
+}
 
 dependencies {
 	jmh 'org.openjdk.jmh:jmh-core:1.37'
